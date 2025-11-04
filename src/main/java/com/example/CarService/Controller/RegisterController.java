@@ -14,20 +14,13 @@ public class RegisterController {
 
     @Autowired
     Registration registration;
-/**
- 1. Modify the below funtion.
- 2. getRegistrationPage method accepts Model as argument.
-**/
+
     @RequestMapping("/register")
     public String getRegistrationPage(Model model){
         model.addAttribute("car", new Car());
         return "carregister";
     }
-  /*
-   1. getResponsePage method uses registerCar() method to register the car submitted from carregsiter.jsp.
-   2. It should return "success" if registerCar() return true else it should return "carregister".
-   3. getResponsePage method uses @ModelAttribute annotation to bind data with reference to car domain.
-  */
+
     @RequestMapping("/done")
     public String getResponsePage(@ModelAttribute("car") Car car){
         if (car.getRegisterationNumber() == null || car.getRegisterationNumber().isEmpty() ||
